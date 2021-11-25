@@ -1,0 +1,78 @@
+const team = {
+  //Players on the team (offense and Defense)
+  _players: {
+    offense: [
+      {firstName:'Jimmy', lastName:'Garopolo', number: 10, position:'quarterback',captain: true},
+      {firstName:'George', lastName:'Kittle', number: 85, position:'tight-end',captain: true},
+      {firstName:'Deebo', lastName: 'Samuel', number:19, position:'wide reciever',captain: false},
+      {firstName:'Elijah', lastName:'Mitchell' , number:25, position:'runningback',captain: false}],
+    defense: [
+      {firstName:'Fred', lastName:'Warner' , number:54, position:'linebacker',captain: true},
+      {firstName:'Nick', lastName:'Bosa', number:97, position:'defensive-end',captain: false},
+      {firstName:'Jimmie', lastName:'Ward', number:1, position:'safety',captain: false},
+      {firstName: 'Josh', lastName:'Norman', number:26, postion:'cornerback',captain: false} ,    
+      {firstName: 'Jason', lastName:'Verret', number:2, postion: 'cornerback',captain: false}
+    ]
+  },
+
+  //Games through the season
+  _games:[
+    {opponent:'detroit', teamPoints:41, opponentPoints:33},
+    {opponent:'philadelphia', teamPoints:17, opponentPoints:11},
+    {opponent:'green bay', teamPoints:28, opponentPoints:30},
+    {opponent:'seattle', teamPoints:21, opponentPoints:28},
+    {opponent:'arizona', teamPoints:17, opponentPoints:10},
+    {opponent:'detroit', teamPoints:18, opponentPoints:30}
+    ],
+
+//Getter methods for _players OFFENSE 7 DEFENSE
+  get players() {
+      return this._players;
+    },
+  get playersOffense() {
+      return this.players.offense;
+  },
+  get playersDefense() {
+      return this.players.defense;
+  },
+
+
+//Getter for Games in season
+  get games() {
+      return this._games;
+  },
+
+//Method to add a new player to the team
+  addPlayer(offenseOrDefense, firstName, lastName, number, position, captain) {
+    const player = {
+    firstName: firstName,
+    lastName: lastName,
+    number: number,
+    position: position,
+    captain: captain,
+    };
+    return this._players[offenseOrDefense].push(player);
+  },
+
+  //METHOD THAT ADDS GAMES 
+  addGames(oppenentName, teamScore, opponentScore) {
+    const game = {
+      opponent: oppenentName,
+      teamScore: teamScore,
+      oppenentScore: opponentScore
+    };
+    return this._games.push(game);
+  },
+};
+
+//Adding player to array of players on defense
+team.addPlayer('defense', 'Bryan', 'Madrigal', 21, 'cornerback', false);
+
+team.addGames('minisota', 40, 3);
+
+console.log(team._games);
+
+
+
+
+
